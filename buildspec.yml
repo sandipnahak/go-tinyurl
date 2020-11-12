@@ -13,5 +13,6 @@ phases:
       - echo Building the Go code...
       - echo CODEBUILD_SRC_DIR - $CODEBUILD_SRC_DIR
       - echo GOPATH - $GOPATH
-      - cd $GOPATH &&  go get -t .
+      - export GOBIN=$GOPATH/bin
+      - go get ./...
       - cd $CODEBUILD_SRC_DIR && golint -set_exit_status
