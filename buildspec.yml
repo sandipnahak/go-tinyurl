@@ -20,10 +20,9 @@ phases:
     commands:
       - mkdir $CODEBUILD_SRC_DIR/build
       - cd $CODEBUILD_SRC_DIR
-      - ENV CGO_ENABLED=0
       - GOOS=linux  CGO_ENABLED=0 go build -o build/gourlshortner-linux
       - GOOS=darwin CGO_ENABLED=0 go build -o build/gourlshortner-darwin
-      - GOOS=windows go build -o build/gourlshortner-win.exe
+      - GOOS=windows CGO_ENABLED=0 go build -o build/gourlshortner-win.exe
       - cp -v urlshort.db build/
 artifacts:
   files:
