@@ -8,7 +8,7 @@ phases:
       - env
       - go get -v -u golang.org/x/lint/golint
 
-  build:
+  pre_build:
     commands:
       - echo Building the Go code...
       - echo CODEBUILD_SRC_DIR - $CODEBUILD_SRC_DIR
@@ -16,3 +16,10 @@ phases:
       - export GOBIN=$GOPATH/bin
       - go get ./...
       - cd $CODEBUILD_SRC_DIR && golint -set_exit_status
+  build:
+    commands:
+      - mkdir $CODEBUILD_SRC_DIR/build
+      - cd $CODEBUILD_SRC_DIR
+      - GOOS=linux go build -o build/gourlshortner-linux
+      - GOOS=darwin go build -o build/gourlshortner-darwin
+      - GOOS=windows go build -o build/gourlshortner-win.exe
