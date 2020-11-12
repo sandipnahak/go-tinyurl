@@ -4,9 +4,14 @@ phases:
   install:
     runtime-versions:
       golang: 1.14
+    commands:
+      - env
+      - go get -u github.com/golang/lint/golint
+
   build:
     commands:
       - echo Building the Go code...
       - echo CODEBUILD_SRC_DIR - $CODEBUILD_SRC_DIR
       - echo GOPATH - $GOPATH
-      - ls -l
+      - cd $GOPATH &&  go get -t .
+      - cd $CODEBUILD_SRC_DIR && golint -set_exit_status
