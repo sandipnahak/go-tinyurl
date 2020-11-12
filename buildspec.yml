@@ -23,3 +23,8 @@ phases:
       - GOOS=linux go build -o build/gourlshortner-linux
       - GOOS=darwin go build -o build/gourlshortner-darwin
       - GOOS=windows go build -o build/gourlshortner-win.exe
+artifacts:
+  files:
+    - build/*
+  name: go-tinyurl.zip
+  discard-paths: yes
