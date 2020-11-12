@@ -28,4 +28,4 @@ artifacts:
   files:
     - build/*
   name: go-tinyurl.zip
-  discard-paths: no
+  discard-paths: yes
