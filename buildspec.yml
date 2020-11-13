@@ -25,7 +25,7 @@ phases:
       - GOOS=windows CGO_ENABLED=0 go build -o build/gourlshortner-win.exe
       - cp -v urlshort.db build/
       - cp -vR scripts build/
-      - cd build ; zip  gotinyurl.zip *
+      - cd build ; zip  gotinyurl.zip * ; cd ..
 artifacts:
   files:
     - gotinyurl.zip
