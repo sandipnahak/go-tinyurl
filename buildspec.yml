@@ -24,7 +24,8 @@ phases:
       - GOOS=darwin CGO_ENABLED=0 go build -o build/gourlshortner-darwin
       - GOOS=windows CGO_ENABLED=0 go build -o build/gourlshortner-win.exe
       - cp -v urlshort.db build/
-      - zip -gqX gotinyurl.zip build/*
+      - cp -vR scripts build/
+      - cd build ; zip  gotinyurl.zip *
 artifacts:
   files:
     - gotinyurl.zip
