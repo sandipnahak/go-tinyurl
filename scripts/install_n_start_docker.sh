@@ -5,5 +5,5 @@ sudo yum install docker -y
 sudo systemctl enable docker
 sudo systemctl start docker
 sudo mkdir -p /tinyurl 
-sudo unzip  $DEPLOYMENT_GROUP_ID/$DEPLOYMENT_ID/bundle.tar  -d /tinyurl
-sudo chmod 777 gourlshortner*
+sudo unzip  /opt/codedeploy-agent/deployment-root/$DEPLOYMENT_GROUP_ID/$DEPLOYMENT_ID/bundle.tar  -d /tinyurl
+sudo chmod 777  /tinyurl/gourlshortner*
