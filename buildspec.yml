@@ -26,7 +26,7 @@ phases:
       - cp -v urlshort.db build/
       - cp -v appspec.yml build/
       - cp -vR scripts build/
-      - cd build ; zip  gotinyurl.zip * 
+      - cd build ; zip -rqX gotinyurl.zip * 
       - mv gotinyurl.zip ..
 artifacts:
   files:
