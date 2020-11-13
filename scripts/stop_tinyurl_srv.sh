@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo pkill gourlshortner
+sudo pkill gourlshortner || true
