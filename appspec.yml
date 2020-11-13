@@ -1,8 +1,8 @@
 version: 0.0
 os: linux
 files:
-  - source: gotinyurl.zip
-    destination: /deploy/gotinyurl.zip
+  - source: ./*
+    destination: /tinyurl
 hooks:
   BeforeInstall:
     - location: scripts/install_n_start_docker.sh
