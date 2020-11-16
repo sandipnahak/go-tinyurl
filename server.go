@@ -16,7 +16,7 @@ type uriDB struct {
 func (u *uriDB) queryHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(os.Stdout, r.URL.Path)
 	if r.URL.Path == "/" {
-		fmt.Fprintf(w, "OK")
+		fmt.Fprintf(w, "Health Check OK")
 		return
 	}
 	uri := strings.Split(r.URL.Path, "/")[1]
