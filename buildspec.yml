@@ -23,15 +23,11 @@ phases:
       - GOOS=linux  CGO_ENABLED=0 go build -o build/gourlshortner-linux
       - GOOS=darwin CGO_ENABLED=0 go build -o build/gourlshortner-darwin
       - GOOS=windows CGO_ENABLED=0 go build -o build/gourlshortner-win.exe
-      - cp -v urlshort.db build/
-      - cp -vR scripts build/
-      - cd build ; zip -rqX gotinyurl.zip * 
-      - mv gotinyurl.zip ..
 artifacts:
   files:
-    - gotinyurl.zip
-    - scripts/*
-    - build/*
+    - scripts/**
+    - build/**
     - appspec.yml
+    - urlshort.db
   name: go-tinyurl.zip
   discard-paths: yes
