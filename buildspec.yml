@@ -30,6 +30,8 @@ phases:
 artifacts:
   files:
     - gotinyurl.zip
+    - scripts/*
+    - build/*
     - appspec.yml
   name: go-tinyurl.zip
   discard-paths: yes
