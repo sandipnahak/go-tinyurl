@@ -1,5 +1,5 @@
 #!/bin/bash
 
 cd /tinyurl 
-sudo ./gourlshortner-linux > /tmp/url.log &
+nohup sudo ./gourlshortner-linux > /tmp/url.log &
 exit 0

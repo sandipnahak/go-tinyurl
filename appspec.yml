@@ -8,4 +8,4 @@ hooks:
       timeout: 180
   ApplicationStart:
     - location: scripts/start_tinyurl_srv.sh
-      timeout: 3600
+      timeout: 300
