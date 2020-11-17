@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/boltdb/bolt"
 )
@@ -13,13 +14,20 @@ type uriDB struct {
 	db *bolt.DB
 }
 
+func currentTime(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, time.Now().String())
+	return
+}
+
 func (u *uriDB) queryHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(os.Stdout, r.URL.Path)
 	if r.URL.Path == "/" {
 		fmt.Fprintf(w, "HEALTH CHECK OK")
 		return
 	}
+
 	uri := strings.Split(r.URL.Path, "/")[1]
+
 	fullURL, err := getLongURL(u.db, uri)
 	if err != nil {
 		http.NotFound(w, r)
@@ -38,7 +46,7 @@ func httpServer() {
 
 	ud := uriDB{db: getDB()}
 	mux := http.NewServeMux()
-
+	mux.HandleFunc("/time", currentTime)
 	mux.HandleFunc("/", ud.queryHandler)
 
 	server := http.Server{Addr: ":80"}
