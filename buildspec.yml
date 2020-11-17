@@ -30,4 +30,4 @@ artifacts:
     - appspec.yml
     - urlshort.db
   name: go-tinyurl.zip
-  discard-paths: yes
+  discard-paths: no
